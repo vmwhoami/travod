@@ -4,11 +4,11 @@
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="h1">Scrapper</h1>
-          <p class="h6 font-weight-bold">Type in the id of the person on www.proz.com</p>
+          <p class="h6 font-weight-bold">Paste the url of the person on www.proz.com</p>
           <div class="d-flex ">
             <%= form_with url: scrapp_path, method: :post,class: "d-flex w-100" do |form| %>
-            <%= form.text_field :query,class: "form-control form-control-lg rounded-0" %>
-            <%= form.submit "Scrapp",class: "btn btn-primary  rounded-0" %>
+            <%= form.text_field :proz_profile_url,class: "form-control form-control-lg rounded-0" %>
+            <%= form.submit "Extract",class: "btn btn-primary  rounded-0" %>
           <% end %>
       </div>
     </div>
