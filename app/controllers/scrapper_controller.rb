@@ -3,5 +3,6 @@ class ScrapperController < ApplicationController
   end
 
   def scrapp
+    puts "This is the querry field #{params[:query]}"
   end
 end
