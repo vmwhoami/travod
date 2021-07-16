@@ -12,11 +12,15 @@ class ScrappersController < ApplicationController
 
     @first_name = get_name(doc)[0]
     @last_name = get_name(doc)[1]
+    @country = get_country(doc)
     @native_language = get_language(doc)
-    @target_language = get_target_language(doc)
-
+    @target_language = get_target_language(doc) - [@native_language]
     @source = profile_url
     byebug
+
+    # br = doc.xpath('//span[@id="tagline"]').first.next_element
+    # nextbr =br.next_element
+    # location = nextbr.next_element.children[0].text.split[-1]
   end
 
   def get_name(doc)
@@ -27,7 +31,8 @@ class ScrappersController < ApplicationController
   end
 
   def get_language(doc)
-    doc.search('.pd_bot').children.text.split[-1].strip
+    lang = doc.search('.pd_bot').children.text.split(' ')[-1]
+    lang[0...-1]
   end
 
   def get_target_language(doc)
@@ -37,4 +42,13 @@ class ScrappersController < ApplicationController
     end
     arr.reject { |c| c.empty? }.flatten.uniq
   end
+
+  def get_country(doc)
+     br = doc.xpath('//span[@id="tagline"]').first.next_element
+    nextbr =br.next_element
+    location = nextbr.next_element.children[0].text.split[-1]
+  end
+  
+
+
 end
