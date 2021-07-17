@@ -1,6 +1,17 @@
 module Scrapping
   extend ActiveSupport::Concern
 
+  def format_target_languages(target_languages)   
+    target_languages.join(' / ')
+  end
+  
+  def check_url(url)    
+    if url.include? "https://www.proz.com/"
+      return true
+    end
+    false
+  end
+
   def scrapp_page(url)
     unparsed = HTTParty.get(url)
     doc = Nokogiri::HTML(unparsed)

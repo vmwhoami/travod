@@ -1,14 +1,21 @@
 
 <h2 class="text-center text-uppercase">All scraped data</h2>
 <%= link_to  "return to main page" , root_path,class: 'btn btn-primary' %>
-
+<div class="row d-flex justify-content-center">
+<div class="col-10">
 <% @scrapped.each do |t|%>
 <div  class="list-group-item list-group-item-action py-3 lh-tight">
         <div class="d-flex w-100 align-items-center justify-content-between">
+        <div class="d-flex flex-column"> 
+          <h5 class="mb-1">Full Name</h5>
           <strong class="mb-1"><%= t.first_name%> <%= t.last_name%></strong>
-          <small class="text-muted"><%= t.country%></small>
+          </div>
+          <small class="text-muted">Country: <%= t.country%></small>
         </div>
         <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
       </div>
 
 <%end%>
+
+</div>
+</div>
