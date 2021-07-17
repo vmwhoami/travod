@@ -42,7 +42,9 @@ module Scrapping
   end
 
   def get_country(doc)
-     br = doc.xpath('//span[@id="tagline"]').first.next_element
+     br = doc.xpath('//span[@id="tagline"]')
+     return if br.empty?
+    br =  br.first.next_element
     nextbr =br.next_element
     location = nextbr.next_element.children[0].text.split[-1]
   end

@@ -1,20 +1,40 @@
-<h1 class="">Scrapped data for <%= @scraped_values["first_name"]%> <%= @scraped_values["last_name"]%> </h1>
-
- <%= form_with model:  @scrapp,class: "needs-validation" do |f| %>
-   <div class="form-group">
-   <%= f.label "First name" %>
-     <%= f.text_field :first_name,value: @scraped_values["first_name"] %>
-      <%= f.label "Last name" %>
-    <%= f.text_field :last_name,value: @scraped_values["last_name"] %>
-  <div>
-       <%= f.label "Country" %>
-    <%= f.text_field :last_name,value: @scraped_values["country"] %>
-    <%= f.label "Native language" %>
-    <%= f.text_field :last_name,value: @scraped_values["native_language"] %>
-
-  <%# <%= f.label "Target languages" %> 
-    <%# <%@scraped_values["target_language"].each do |lang|%> 
-      <%# <%= f.text_field :language,value: lang %> 
-    <%# <%end%> 
+<h2 class="text-decoration-none text-center">Scrapped data for <%= @scraped_values["first_name"]%> <%= @scraped_values["last_name"]%> </h2>
+ <div class="row g-5 d-flex justify-content-center">
+      <div class="col-md-7 col-lg-8">
+ <%= form_with url: scrapp_add_path, method: :post do |f| %>
+  <div class="row g-3">
+    <div class="col-sm-6">
+   <%= f.label "First name",class: 'form-label' %>
+     <%= f.text_field :first_name,class: 'form-control',value: @scraped_values["first_name"] %>
+ </div>
+      <div class="col-sm-6">
+      <%= f.label "Last name",class: 'form-label' %>
+    <%= f.text_field :last_name,class: 'form-control',value: @scraped_values["last_name"] %>
+  </div>
+     <div class="col-sm-6">
+       <%= f.label "Country",class: 'form-label'  %>
+    <%= f.text_field :country,class: 'form-control',value: @scraped_values["country"] %>
+    </div>
+      <div class="col-sm-6">
+    <%= f.label "Native language",class: 'form-label' %>
+    <%= f.text_field :native_language,class: 'form-control',value: @scraped_values["native_language"] %>
+</div>
+<div class="col-sm-12">
+  <%= f.label "Target languages",class: 'form-label' %> 
+    <%@scraped_values["target_language"].each do |lang,indx|%>
+     <div class="col-sm-6">
+      <%= f.text_field :languages,class: 'form-control',value: lang %> 
+      </div>
+    <%end%> 
+    </div>
+    </div>
    <%= f.submit "Save to db", class: "btn btn-primary text-uppercase rounded-0" %>
  <% end %>
+ </div>
+</div>
+
+
+   
+ 
+ 
+ 
