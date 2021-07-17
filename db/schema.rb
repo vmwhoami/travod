@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_07_16_213741) do
     t.string "country"
     t.string "native_language"
     t.string "target_language"
+    t.string "source"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

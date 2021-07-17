@@ -6,7 +6,8 @@ class CreateScrappers < ActiveRecord::Migration[6.1]
       t.string :country
       t.string :native_language
       t.string :target_language
-
+      t.string :source
+      
       t.timestamps
     end
   end
