@@ -1,0 +1,20 @@
+<h1 class="">Scrapped data for <%= @scraped_values["first_name"]%> <%= @scraped_values["last_name"]%> </h1>
+
+ <%= form_with model:  @scrapp,class: "needs-validation" do |f| %>
+   <div class="form-group">
+   <%= f.label "First name" %>
+     <%= f.text_field :first_name,value: @scraped_values["first_name"] %>
+      <%= f.label "Last name" %>
+    <%= f.text_field :last_name,value: @scraped_values["last_name"] %>
+  <div>
+       <%= f.label "Country" %>
+    <%= f.text_field :last_name,value: @scraped_values["country"] %>
+    <%= f.label "Native language" %>
+    <%= f.text_field :last_name,value: @scraped_values["native_language"] %>
+
+  <%# <%= f.label "Target languages" %> 
+    <%# <%@scraped_values["target_language"].each do |lang|%> 
+      <%# <%= f.text_field :language,value: lang %> 
+    <%# <%end%> 
+   <%= f.submit "Save to db", class: "btn btn-primary text-uppercase rounded-0" %>
+ <% end %>
