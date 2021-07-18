@@ -5,31 +5,37 @@
 <% @scrapped.each do |t|%>
    <div  class="list-group-item list-group-item-action py-3 lh-tight">
      <div class="d-flex w-100 align-items-center justify-content-between">
-        <div class="d-flex flex-column"> 
+        <div class="col-sm d-flex flex-column"> 
           <h5 class="mb-1">Full Name</h5>
           <strong class="mb-1"><%= t.first_name%> <%= t.last_name%></strong>
         </div>
 
-        <div class="d-flex flex-column"> 
-          <strong class="mr-4">Native language</strong>
+        <div class="col-sm align-items-center text-center"> 
+          <strong class="mr-4">Native language:</strong>
           <span class="mb-1"><%= t.native_language%></span>
         </div>
 
-        <div class="d-flex flex-column"> 
-          <strong class="mr-4">Targe Languages</strong>
-          <span class="mb-1"><%= t.target_language%></span>
-        </div>
 
-        <div class="d-flex flex-column">
+        <div class="col-sm d-flex flex-column align-items-end">
           <strong class="mr-4">Country</strong>
           <span class="mb-1"><%= t.country%></span>
         </div>  
 
-      </div>  
+      </div> 
+
+        <div class="py-2"> 
+          <strong class="mr-4 pl-2">Target Languages: </strong>
+          <span class="mb-1"><%= t.target_language%></span>
+        </div> 
+
+          <div class="bg-light d-flex justify-content-between py-3"> 
+          <strong class="mr-4 px-2">Source: </strong>
+          <span class="text-center"><%= t.source%></span>
+        </div> 
     </div>
 
 <%end%>
-<%= link_to  "return to main page" , root_path,class: 'btn btn-primary rounded-0 text-uppercase w-100' %>
+<%= link_to  "return to main page" , root_path,class: 'btn btn-primary rounded-0 text-uppercase w-100 mb-5' %>
  </div>
 </div>
 
