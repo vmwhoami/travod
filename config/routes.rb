@@ -3,6 +3,11 @@
 Rails.application.routes.draw do
   root 'scrappers#index'
   post '/scrapper', to: 'scrappers#scrapp', as: 'scrapp'
-  get '/scrapper', to: 'scrappers#all', as: 'scrapp_all'
   post '/add', to: 'scrappers#create', as: 'scrapp_add'
+   get "/*slug" => "scrappers#all",
+      param: :slug,
+      as: "scrapp_all",
+      constraints: lambda { |req|
+        req.path.exclude? "rails/active_storage"
+      }
 end

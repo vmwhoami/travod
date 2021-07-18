@@ -49,7 +49,7 @@ module Scrapping
     doc.search('#lang_full').children.each do |span|
       arr << span.text.split(' to ')
     end
-    arr.reject { |c| c.empty? }.flatten.uniq
+    arr.reject { |c| c.empty? }.flatten.uniq.reject { |c| c.strip.downcase == 'less' }
   end
 
   def get_country(doc)
@@ -57,7 +57,7 @@ module Scrapping
      return if br.empty?
     br =  br.first.next_element
     nextbr =br.next_element
-    location = nextbr.next_element.children[0].text.split[-1]
+    location = nextbr.next_element.children[0].text.split(',')[-1]
   end
   
 end

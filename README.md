@@ -12,5 +12,62 @@ Example 1:
 Enter "https://www.proz.com/profile/52171" and click on the "Extract" button.  
 On the second page the following editable fields with expected values should appear:
 
+![screenshot](./ex_1.jpg)
+
 Example 2:
 For https://www.proz.com/translator/88393, the extracted data should look like:
+![screenshot](./ex_2.jpg)
+
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+Ruby: 2.7.1
+Rails: 6.0.3.4
+Postgres: >=9.5
+
+### Setup
+
+```bash
+$ git clone https://github.com/vmwhoami/travod
+$ cd travod
+```
+
+Install gems with:
+
+```
+bundle install
+```
+
+Setup database with:
+
+> make sure you have postgress sql installed and running on your system
+
+```
+   rails db:create
+   rails db:migrate
+```
+
+### Usage
+
+Start server with:
+
+```
+    rails server
+```
+
+Open `http://localhost:3000/` in your browser.
+
+# Author
+
+👤 **Vitalie Melnic**
+
+- Github: [@vmwhoami](https://github.com/vmwhoami)
+- Twitter: [@vmwhoami](https://twitter.com/vmwhoami)
+- Linkedin: [vitalie-melnic](https://www.linkedin.com/in/vitalie-melnic/)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
