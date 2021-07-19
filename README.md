@@ -18,6 +18,10 @@ Example 2:
 For https://www.proz.com/translator/88393, the extracted data should look like:
 ![screenshot](./ex_2.jpg)
 
+### Live Demo
+
+Open [this link](https://travod-vm.herokuapp.com/) to view it live.
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
@@ -49,7 +53,9 @@ Setup database with:
    rails db:create
    rails db:migrate
 ```
+
 > In case you have a problem with webpack
+
 ```
     yarn config set registry https://registry.npmjs.org
     rm yarn.lock
