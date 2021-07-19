@@ -14,11 +14,11 @@ module ScrapingModule
   def scrapp_page(url)
     unparsed = HTTParty.get(url)
     doc = Nokogiri::HTML(unparsed)
-    first_name = get_name(doc)[0]
-    last_name = get_name(doc)[1]
-    country = get_country(doc)
-    native_language = get_language(doc)
-    target_language = get_target_language(doc) - [native_language]
+    first_name = name(doc)[0]
+    last_name = name(doc)[1]
+    country = country(doc)
+    native_language = language(doc)
+    target_language = target_language(doc) - [native_language]
     source = url
     hash = {}
     hash['first_name'] = first_name
@@ -30,19 +30,19 @@ module ScrapingModule
     hash
   end
 
-  def get_name(doc)
+  def name(doc)
     arr = doc.search('strong')[1].children.text.strip.split
     first_name = arr.shift
     family_name = arr.join(' ')
     [first_name, family_name]
   end
 
-  def get_language(doc)
+  def language(doc)
     lang = doc.search('.pd_bot').children.text.split[-1]
     lang[0...-1]
   end
 
-  def get_target_language(doc)
+  def target_language(doc)
     arr = []
     doc.search('#lang_full').children.each do |span|
       arr << span.text.split(' to ')
@@ -50,7 +50,7 @@ module ScrapingModule
     arr.reject(&:empty?).flatten.uniq.reject { |c| c.strip.downcase == 'less' }
   end
 
-  def get_country(doc)
+  def country(doc)
     br = doc.xpath('//span[@id="tagline"]')
     return if br.empty?
 
