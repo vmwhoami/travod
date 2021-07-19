@@ -49,6 +49,12 @@ Setup database with:
    rails db:create
    rails db:migrate
 ```
+> In case you have a problem with webpack
+```
+    yarn config set registry https://registry.npmjs.org
+    rm yarn.lock
+    yarn
+```
 
 ### Usage
 
