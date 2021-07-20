@@ -9,10 +9,7 @@ class ScrappersController < ApplicationController
     @scraped_values = scrapp_page(profile_url)
   end
 
-  def new
-    @scrapp = Scrapper.new
-  end
-
+ 
   def create
     target_languages = format_target_languages(params[:languages])
     @scrapp = Scrapper.new(
