@@ -72,6 +72,13 @@ Start server with:
 
 Open `http://localhost:3000/` in your browser.
 
+### Testing 
+Run Rspec with:
+
+```
+    rspec
+```
+
 # Author
 
 👤 **Vitalie Melnic**
