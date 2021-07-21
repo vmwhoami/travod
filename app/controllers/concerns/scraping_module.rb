@@ -31,14 +31,20 @@ module ScrapingModule
   end
 
   def name(doc)
-    arr = doc.search('strong')[1].children.text.strip.split
-    first_name = arr.shift
-    family_name = arr.join(' ')
+    arr = doc.search('strong')[1]
+    return if arr.nil?
+
+    text = arr.children.text.strip.split
+    first_name = text.shift
+    family_name = text.join(' ')
     [first_name, family_name]
   end
 
   def language(doc)
     lang = doc.search('.pd_bot').children.text.split[-1]
+
+    return 'No language defined' if lang[0...-1] == 'languages'
+
     lang[0...-1]
   end
 
